@@ -1,46 +1,19 @@
-
 // VARABILES
   // Gets value of dollar amount
   var amount = document.querySelector('#amount');
  // targets the dom to place the idea
   var displayA = document.querySelector('#idea');
   // targets the dom to place the link
-  var displayB = document.querySelector('#link');
-  // targets the dom to place the link
-  var displayC = document.querySelector('h4');
+  var displayB = document.querySelector('#mapBtn');
+  // targets the dom to place the map
+  var displayC = document.querySelector('iframe');
  
+// IDEA BTN RUNS AMOUNT FUNCTION
+  $('#btn').click(function idea() {
 
-// THIS FUNCTIONS DISPLAYS THE TEXT FOR IDEA, LINK, AND LABEL
-  function displayText(){
-    // THIS FUNCTION CREATES A H3 FOR THE IDEA
-      function ideaH3 (e){
-        displayA.innerHTML = "";
-        displayA.appendChild(document.createTextNode(e))
-        }
-    // THIS FUNCTION CREATES A H4 FOR THE IDEA LINK
-      function label (){
-        displayC.innerHTML = "";
-        displayC.appendChild(document.createTextNode('Click the link to learn more!')) 
-        } 
-    // THIS FUNCTION CREATES THE LINK H2
-      function linkH2 (e){
-        displayB.innerHTML = "";
-        displayB.appendChild(document.createTextNode(e))
-        displayB.setAttribute("href", idea.href);
-        }
-    //   THE FUNCTIONS ARE RAN HERE
-      ideaH3(idea.idea)
-      label()
-      linkH2(idea.link)   
-      }
+        // THIS HIDES THE MAP NEXT TIME YOU CLICK IDEA BTN
+    document.getElementById("location").style.visibility = "hidden";
 
-// GETS RANDOM ARRAY FROM AOI 
-  function randomObj(e){
-  return  idea = aoi[e][Math.floor(Math.random()*aoi[e].length)]
-  }
-
-//   IDEA BTN RUNS AMOUNT FUNCTION
-  $('#btn').click(function idea() { 
            //DIFFRENT AMOUNTS
     if (amount.value == 0){ 
               randomObj(0); 
@@ -58,14 +31,51 @@
         displayText()
         });    
 
+// GETS RANDOM ARRAY FROM AOI 
+  function randomObj(e){
+  return  idea = aoi[e][Math.floor(Math.random()*aoi[e].length)]
+  }
+
+// THIS FUNCTIONS DISPLAYS THE TEXT FOR IDEA, LINK, AND LABEL
+  function displayText(){
+    // THIS FUNCTION CREATES A H3 FOR THE IDEA
+      function ideaH3(e){
+        displayA.innerHTML = "";
+        displayA.appendChild(document.createTextNode(e))
+        }
+    // THIS FUNCTION CREATES A H4 FOR THE IDEA LINK TO DISPLAY MAP
+      function link (){
+        displayB.innerHTML = "";
+        displayB.appendChild(document.createTextNode('Click to find a place!')) 
+        } 
+    // THIS FUNCTION CREATES THE MAP
+      function map (e){
+        displayC.setAttribute("src", mapLink());
+        }
+    //   THE FUNCTIONS ARE RAN HERE
+      ideaH3(idea.idea)
+      link()
+      map()   
+      }
+
+// THIS FUNCTION GIVES THE MAP A SOURCE LINK WITH AOI.LINK INFO
+  function mapLink(){   
+  return "https://www.google.com/maps/embed/v1/place?key=AIzaSyAfiiiKmji3_KyUJ5pdlEibiyBD3sHHvq0&q=" + idea.link
+  };
+
+// THIS FUNCTION SHOWS THE MAP ONCE THE LINK IS CLICKED
+    displayB.addEventListener('click', function showMap(){
+      document.getElementById("location").className="slideup";  
+      document.getElementById("location").style.visibility = "visible";
+    });
 
 // Array of ideas ALL 
   var aoi = [
     
   //                     FREE IDEAS [0]
       [
-      {idea: 'play Kickball', link : 'local sport team', href : 'http://www.orlandosportandsocialclub.com/pages/kickball'},
-      {idea: 'go for a run', link : 'Running paths', href : 'https://www.google.com/search?q=running+paths+near+me'},  
+      {idea: 'play Kickball', link : 'local sport team',},
+      {idea: 'go for a run', link : 'Running paths',},  
       {idea: 'learn drums', link:'youtube drums'}
       ], 
              
@@ -103,3 +113,4 @@
      {idea: 'make dinner', link : 'grocery store'},
      {idea: 'build a bird house', link:'home depot'}
      ]];
+
