@@ -74,9 +74,19 @@
     
   //                     FREE IDEAS [0]
       [
-      {idea: 'play Kickball', link : 'local sport team',},
-      {idea: 'go for a run', link : 'Running paths',},  
-      {idea: 'learn drums', link:'youtube drums'}
+      {idea: 'Play Kickball', link : 'Kickball'},
+      {idea: 'Go for a run', link : 'Running paths'}, 
+      {idea: 'Check out the community calendar', link : 'public library'},
+      {idea: 'Listen to some podcasts', link : 'radio station'},  
+      {idea: 'Play board games', link : 'toy store'},
+      {idea: 'Bake a loaf of homemade bread', link : 'grocery store'},  
+      {idea: 'Teach yourself how to juggle', link : 'grocery store'},
+      {idea: 'Learn how to change your car’s oil', link : 'auto supplies'},  
+      {idea: 'Meet your neighbors', link : 'next to me'},
+      {idea: 'Clear out your media collection of books, DVDs, and CDs', link : 'goodwill'},  
+      {idea: 'Make decisions about and write out your will', link : 'will laywer'},
+      {idea: 'Do a household maintenance walk-through', link : 'home depot'},   
+      {idea: 'Organize a self-guided walking tour', link:'public park'}
       ], 
              
   //                       $25 IDEAS [1]
